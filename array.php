@@ -120,4 +120,9 @@
         }
         echo "<br>";
     }
+
+    //function
+    //condition
+    //loop
+    //array
 ?>
