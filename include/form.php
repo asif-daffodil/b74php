@@ -7,7 +7,7 @@
         $ccode = safe($_POST['ccode']);
         $phone = safe($_POST['phone']);
         $gender = safe($_POST['gender'] ?? null);
-        $skills = safe($_POST['skills'] ?? null);
+        $skills = $_POST['skills'] ?? null;
         $imgName = $_FILES['img']['name'];
         $tmp_img = $_FILES['img']['tmp_name'];
         
@@ -17,6 +17,47 @@
         }elseif(!preg_match("/^[A-Za-z. ]*$/", $name)){
             $errNameClass = "is-invalid";
             $errNameMsg = "Invalid Name format";
+        }else{
+            $crrName = $name; 
+        }
+
+        if (empty($email)) {
+            $errEmailClass = "is-invalid";
+            $errEmailMsg = "Please write your Email";
+        }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $errEmailClass = "is-invalid";
+            $errEmailMsg = "Invalid Email";
+        }else{
+            $crrEmail = $email; 
+        }
+
+        if (empty($phone)) {
+            $errPhoneClass = "is-invalid";
+            $errPhoneMsg = "Please write your phone number";
+        }elseif(strlen($phone) < 10){
+            $errPhoneClass = "is-invalid";
+            $errPhoneMsg = "Invalid phone number";
+        }else{
+            $crrPhone = $phone; 
+        }
+    
+        if (empty($gender)) {
+            $errGenderClass = "is-invalid";
+            $errGenderMsg = "Please select your gender";
+        }else{
+            $crrGender = $gender; 
+        }
+
+        if (empty($skills)) {
+            $errSkillsClass = "is-invalid";
+            $errSkillsMsg = "Please select your gender";
+        }else{
+            $crrSkills = $skills; 
+        }
+
+        if (empty($tmp_img)) {
+            $errImgClass = "is-invalid";
+            $errImgMsg = "Please select your gender";
         }
     }
 
@@ -40,10 +81,10 @@
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="Email Address" name="email">
+                        <input type="text" class="form-control <?= $errEmailClass ?? null; ?>" placeholder="Email Address" name="email">
                         <label for="">Email Address</label>
                         <div class="invalid-feedback">
-                                
+                            <?= $errEmailMsg ?? null; ?>
                         </div>
                     </div>
                     <div class="mb-3 input-group">
@@ -52,12 +93,12 @@
                                 <option value="<?= $code;?>">+<?= $code; ?></option>
                             <?php } ?>
                         </select>
-                        <input type="text" class="form-control w-75" placeholder="Phone Number" name="phone">
+                        <input type="text" class="form-control w-75 <?= $errPhoneClass ?? null; ?>" placeholder="Phone Number" name="phone">
                         <div class="invalid-feedback">
-                                
+                            <?= $errPhoneMsg ?? null; ?>
                         </div>
                     </div>
-                    <div class="form-control">
+                    <div class="form-control <?= $errGenderClass ?? null; ?>">
                         <div class="form-check-inline">
                             <label for="" class="form-check-label">
                                 Gender :
@@ -77,10 +118,10 @@
                         </div>
                     </div>
                     <div class="invalid-feedback">
-                                
+                        <?= $errGenderMsg ?? null; ?> 
                     </div>
                     <div class="mb-3"></div>
-                    <div class="form-control">
+                    <div class="form-control <?= $errSkillsClass ?? null; ?>">
                         <div class="form-check-inline">
                             <label for="" class="form-check-label">Skills :</label>
                         </div>
@@ -101,13 +142,17 @@
                             <label for="" class="form-check-label">jQuery</label>
                         </div>
                     </div>
-                    <div class="invalid-feedback"></div>
+                    <div class="invalid-feedback">
+                        <?= $errSkillsMsg ?? null; ?>
+                    </div>
                     <div class="mb-3"></div>
-                    <div class="input-group form-control">
+                    <div class="input-group form-control <?= $errSkillsClass ?? null; ?>">
                         <input type="file" class="form-control d-none" id="imgup" name="img">
                         <label for="imgup" class="input-group-text w-100 fs-5 d-flex- justify-content-center">Upload Student Image</label>
                     </div>
-                    <div class="invalid-feedback"></div>
+                    <div class="invalid-feedback">
+                        <?= $errImgMsg ?? null; ?>
+                    </div>
                     <div class="mb-3"></div>
                     <input type="submit" value="Add Student" class="btn btn-primary" name="addstu123">
                 </form>
