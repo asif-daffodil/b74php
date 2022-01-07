@@ -1,0 +1,15 @@
+SELECT * FROM `students`
+SELECT * FROM `students` WHERE `id` = 4
+SELECT `students`.`sname`, `students`.`email` FROM `students` WHERE `students`.`id` = 4
+SELECT * FROM `students` WHERE `students`.`sname` = 'Asif Abir'
+
+INSERT INTO `students` (`sname`, `email`, `phone`) VALUES ('Asif Abir', 'asif@dti.ac', '0195517560')
+
+INSERT INTO `students` (`sname`, `email`, `phone`) VALUES 
+('Tanvir Rahman', 'tanvir@gmail.com', '01711223344'), 
+('Shams Romana', 'romana@gmail.com', '01999999999'),
+('Reza Rahman', 'reza@gmail.com', '01111111111')
+
+UPDATE `students` SET `sname` = 'Hero Alom', `email` = 'hero@alom.com' WHERE `students`.`id` = 1
+
+DELETE FROM `students` WHERE `students`.`id` = 3

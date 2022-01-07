@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2022 at 02:25 PM
+-- Generation Time: Jan 07, 2022 at 03:22 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -40,13 +40,16 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `sname`, `email`, `phone`, `regtime`) VALUES
-(1, 'Noman', 'jekono@email.com', '012364598563', '2022-01-07 13:13:02'),
-(2, 'Roman', 'kamal@jamal.com', '01742420420', '2022-01-07 13:15:05'),
-(3, 'Naam nai', 'nam@nai.com', '01742042042', '2022-01-07 13:15:05'),
+(1, 'Hero Alom', 'hero@alom.com', '012364598563', '2022-01-07 13:13:02'),
+(2, 'Ananta Jalil', 'ananta@jalil.com', '01742420420', '2022-01-07 13:15:05'),
 (4, 'jaal Ali', 'jamal@ali.com', '01798653214', '2022-01-07 13:17:51'),
 (5, 'Tomal Chowdhury', 'tomal@choedhury.com', '01865456545', '2022-01-07 13:17:51'),
 (6, 'Akmal Khandoker', 'akmal@gmail.com', '01963636363', '2022-01-07 13:17:51'),
-(7, 'Asam', 'aslam@gmail.com', '01978656565', '2022-01-07 13:17:51');
+(7, 'Asharaful', 'aslam@gmail.com', '01978656565', '2022-01-07 13:17:51'),
+(8, 'Asif Abir', 'asif@dti.ac', '0195517560', '2022-01-07 14:05:40'),
+(9, 'Tanvir Rahman', 'tanvir@gmail.com', '01711223344', '2022-01-07 14:10:39'),
+(10, 'Shams Romana', 'romana@gmail.com', '01999999999', '2022-01-07 14:10:39'),
+(11, 'Reza Rahman', 'reza@gmail.com', '01111111111', '2022-01-07 14:10:39');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +69,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
