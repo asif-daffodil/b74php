@@ -13,3 +13,10 @@ INSERT INTO `students` (`sname`, `email`, `phone`) VALUES
 UPDATE `students` SET `sname` = 'Hero Alom', `email` = 'hero@alom.com' WHERE `students`.`id` = 1
 
 DELETE FROM `students` WHERE `students`.`id` = 3
+
+ALTER TABLE `products` ADD `brand_id` INT(11)
+ALTER TABLE `products` DROP `brand_id`
+ALTER TABLE `products` ADD FOREIGN KEY (`brand_id`) REFERENCES `brands`(`id`)
+
+SELECT `products`.`name` As 'Product Name', `products`.`price`, `orders`.`quantity`, `orders`.`total`, `brands`.`name` AS 'Company Name' FROM `orders` INNER JOIN `products` ON `orders`.`product_id` = `products`.`id` INNER JOIN `brands` ON `orders`.`brand_id` = `brands`.`id` ORDER By `orders`.`total` DESC
+SELECT SUM(`orders`.`total`) AS 'Total Order' FROM `orders`
