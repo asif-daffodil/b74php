@@ -1,3 +1,8 @@
+<?php  
+    include_once("./classes/db.php");
+    use db\db;
+    new db;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
